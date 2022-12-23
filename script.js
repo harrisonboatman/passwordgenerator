@@ -68,15 +68,17 @@ function generatePassword() {
   };
   let temp = '';
   let temp2 = '';
-  password = password.slice(0, length1);
-  for (let i = 0; i < length1; i++) {
+  
+  for (let i = 0; i < password.length; i++) {
     const j = Math.floor(Math.random() * (password.length));
     temp = password[j];
     password[j] = password[i];
     password[i] = temp;
     temp2 += temp;
   }
-  password = temp2
+  
+  password = temp2;
+  password = password.slice(0, length1);
   console.log(temp2);
   console.log(password);
 
