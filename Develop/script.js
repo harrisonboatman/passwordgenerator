@@ -6,7 +6,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-  
+
 }
 
 // Add event listener to generate button
@@ -26,7 +26,7 @@ function generatePassword() {
   // Join chosen elements into string
   var upperC = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var lowerC = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  var specialChar = [',', '.', '!', '@','#','$','%','^','&','*',];
+  var specialChar = [',', '.', '!', '@', '#', '$', '%', '^', '&', '*',];
   var numb = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
   var length = window.prompt("Please enter a number between 8 and 128");
   var length1 = parseInt(length);
@@ -66,19 +66,20 @@ function generatePassword() {
 
 
   };
-
+  let temp = '';
+  let temp2 = '';
   password = password.slice(0, length1);
+  for (let i = 0; i < length1; i++) {
+    const j = Math.floor(Math.random() * (password.length));
+    temp = password[j];
+    password[j] = password[i];
+    password[i] = temp;
+    temp2 += temp;
+  }
+  password = temp2
+  console.log(temp2);
+  console.log(password);
 
-//     for (let i = password.length-1; i>0; i--) {
-//       const j = Math.floor(Math.random() *(i+1));
-//       const tempr = password[i];
-//       password[i] = password[j];
-//       password[j] = tempr
-//     }
-
-  
-// console.log(tempr)
-  
   console.log(password);
   return password;
 
