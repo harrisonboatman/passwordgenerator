@@ -42,7 +42,7 @@ function generatePassword() {
 
   if (addupper !== true && addlower !== true && addnum !== true && addspec !== true) {
     window.alert("Please say true to at least one category")
-    return;
+    return password;
   };
   var password = '';
   for (i = 0; i <= length1; i++) {
